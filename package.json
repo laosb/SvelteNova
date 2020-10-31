@@ -1,0 +1,25 @@
+{
+  "name": "svelte-nova",
+  "version": "0.1.0",
+  "main": "SvelteNova.novaextension/main.js",
+  "repository": "https://github.com/laosb/SvelteNova",
+  "author": "laosb <laosb@lasteam.net>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "rollup -c && cp README.md LICENSE CHANGELOG.md SvelteNova.novaextension && rm -rf SvelteNova.novaextension/node_modules"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "@rollup/plugin-typescript": "^6.1.0",
+    "@types/nova-editor-node": "^2.0.0",
+    "prettier": "^2.1.2",
+    "rollup": "^2.32.1",
+    "tslib": "^2.0.3",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "nova-extension-utils": "^1.2.2"
+  }
+}

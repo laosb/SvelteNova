@@ -1,0 +1,6 @@
+node_modules
+yarn-error.log
+SvelteNova.novaextension/README.md
+SvelteNova.novaextension/CHANGELOG.md
+SvelteNova.novaextension/LICENSE
+SvelteNova.novaextension/Scripts/**/*

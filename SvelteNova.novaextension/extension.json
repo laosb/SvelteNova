@@ -1,0 +1,46 @@
+{
+  "identifier": "sb.lao.svelte-nova",
+  "name": "Svelte",
+  "organization": "Shibo Lyu",
+  "description": "LSP support for Svelte.",
+  "version": "0.1",
+  "categories": ["languages"],
+  "bugs": "https://github.com/laosb/SvelteNova/issues",
+  "repository": "https://github.com/laosb/SvelteNova",
+  "min_runtime": "2.0",
+
+  "main": "main.js",
+
+  "entitlements": {
+    "process": true,
+    "filesystem": "readwrite"
+  },
+
+  "activationEvents": ["onLanguage:svelte"],
+
+  "config": [
+    {
+      "key": "sb.lao.svelte-nova.language-server-path",
+      "title": "Svelte Language Server Path",
+      "type": "path",
+      "placeholder": "some /node_modules/.bin/svelteserver"
+    }
+  ],
+
+  "commands": {
+    "extensions": [
+      {
+        "title": "Preferences",
+        "command": "sb.lao.svelte-nova.commands.openWorkspaceConfig"
+      },
+      {
+        "title": "Reload extension",
+        "command": "sb.lao.svelte-nova.commands.reload"
+      },
+      {
+        "title": "Force Unlock Dependency Installation",
+        "command": "sb.lao.svelte-nova.commands.forceClearLock"
+      }
+    ]
+  }
+}

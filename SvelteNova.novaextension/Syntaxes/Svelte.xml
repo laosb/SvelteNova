@@ -1,0 +1,1373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TODO: Make real syntax. This is currently a copy of official HTML syntax. -->
+
+<syntax name="svelte">
+    <meta>
+        <name>Svelte</name>
+        <type>markup</type>
+        <preferred-file-extension>svelte</preferred-file-extension>
+        <parent>html</parent>
+    </meta>
+    
+    <detectors>
+        <extension priority="1">svelte</extension>
+    </detectors>
+    
+    <indentation>
+        <increase>
+            <expression>(?x)
+                (&lt;(?!\?|(?:area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)\b)
+                ([-_\.A-Za-z0-9]+)(?=\s|&gt;)\b[^&gt;]*&gt;[^&lt;]*$)
+                |(&lt;!--\s*$)
+            </expression>
+        </increase>
+        <decrease>
+            <expression>(?x)
+                ^\s*
+                (&lt;/[-_\.A-Za-z0-9]+\b[^>]*&gt;
+                    |--&gt;
+                )</expression>
+        </decrease>
+    </indentation>
+    
+    <comments>
+        <multiline>
+            <starts-with>
+                <expression>&lt;!--</expression>
+            </starts-with>
+            <ends-with>
+                <expression>--&gt;</expression>
+            </ends-with>
+        </multiline>
+    </comments>
+    
+    <surrounding-pairs>
+        <pair open="{" close="}" />
+        <pair open="[" close="]" />
+        <pair open="(" close=")" />
+        <pair open="&apos;" close="&apos;" />
+        <pair open="&quot;" close="&quot;" />
+        <pair open="`" close="`" />
+    </surrounding-pairs>
+    
+    <scopes spell-check="true" lookup="dictionary">
+        <!-- Meta -->
+        <scope name="html.meta.declaration" spell-check="false" lookup="documentation">
+            <starts-with>
+                <expression>&lt;!(?i:DOCTYPE)</expression>
+            </starts-with>
+            <ends-with>
+                <expression>&gt;</expression>
+            </ends-with>
+        </scope>
+        <scope name="html.meta.cdata" spell-check="false" lookup="documentation">
+            <starts-with>
+                <expression>&lt;!\[(?i:CDATA)\[</expression>
+            </starts-with>
+            <ends-with>
+                <expression>\]\]&gt;</expression>
+            </ends-with>
+            <subscopes />
+        </scope>
+        
+        <!-- Comments -->
+        <scope name="html.comment.block">
+            <starts-with>
+                <expression>&lt;!--</expression>
+            </starts-with>
+            <ends-with>
+                <expression>--&gt;</expression>
+            </ends-with>
+        </scope>
+        
+        <!-- Tags -->
+        <include syntax="self" collection="tags" />
+        
+        <!-- Values -->
+        <scope name="html.value.entity.numeric" spell-check="false" lookup="documentation">
+            <expression>&amp;\#[0-9]+;</expression>
+        </scope>
+        <scope name="html.value.entity.named" spell-check="false" lookup="documentation">
+            <strings prefix="&amp;" suffix=";" word-boundary="false">
+                <string>amp</string>
+                <string>lt</string>
+                <string>gt</string>
+                <string>apos</string>
+                <string>quot</string>
+                <string>nbsp</string>
+                <string>iexcl</string>
+                <string>cent</string>
+                <string>pound</string>
+                <string>curren</string>
+                <string>yen</string>
+                <string>brvbar</string>
+                <string>sect</string>
+                <string>uml</string>
+                <string>copy</string>
+                <string>ordf</string>
+                <string>laquo</string>
+                <string>not</string>
+                <string>shy</string>
+                <string>reg</string>
+                <string>macr</string>
+                <string>deg</string>
+                <string>plusmn</string>
+                <string>sup2</string>
+                <string>sup3</string>
+                <string>acute</string>
+                <string>micro</string>
+                <string>para</string>
+                <string>middot</string>
+                <string>cedil</string>
+                <string>sup1</string>
+                <string>ordm</string>
+                <string>raquo</string>
+                <string>frac14</string>
+                <string>frac12</string>
+                <string>frac34</string>
+                <string>iquest</string>
+                <string>Agrave</string>
+                <string>Aacute</string>
+                <string>Acirc</string>
+                <string>Atilde</string>
+                <string>Auml</string>
+                <string>Aring</string>
+                <string>AElig</string>
+                <string>Ccedil</string>
+                <string>Egrave</string>
+                <string>Eacute</string>
+                <string>Ecirc</string>
+                <string>Euml</string>
+                <string>Igrave</string>
+                <string>Iacute</string>
+                <string>Icirc</string>
+                <string>Iuml</string>
+                <string>ETH</string>
+                <string>Ntilde</string>
+                <string>Ograve</string>
+                <string>Oacute</string>
+                <string>Ocirc</string>
+                <string>Otilde</string>
+                <string>Ouml</string>
+                <string>times</string>
+                <string>Oslash</string>
+                <string>Ugrave</string>
+                <string>Uacute</string>
+                <string>Ucirc</string>
+                <string>Uuml</string>
+                <string>Yacute</string>
+                <string>THORN</string>
+                <string>szlig</string>
+                <string>agrave</string>
+                <string>aacute</string>
+                <string>acirc</string>
+                <string>atilde</string>
+                <string>auml</string>
+                <string>aring</string>
+                <string>aelig</string>
+                <string>ccedil</string>
+                <string>egrave</string>
+                <string>eacute</string>
+                <string>ecirc</string>
+                <string>euml</string>
+                <string>igrave</string>
+                <string>iacute</string>
+                <string>icirc</string>
+                <string>iuml</string>
+                <string>eth</string>
+                <string>ntilde</string>
+                <string>ograve</string>
+                <string>oacute</string>
+                <string>ocirc</string>
+                <string>otilde</string>
+                <string>ouml</string>
+                <string>divide</string>
+                <string>oslash</string>
+                <string>ugrave</string>
+                <string>uacute</string>
+                <string>ucirc</string>
+                <string>uuml</string>
+                <string>yacute</string>
+                <string>thorn</string>
+                <string>yuml</string>
+                <string>OElig</string>
+                <string>oelig</string>
+                <string>Scaron</string>
+                <string>scaron</string>
+                <string>Yuml</string>
+                <string>fnof</string>
+                <string>circ</string>
+                <string>tilde</string>
+                <string>Alpha</string>
+                <string>Beta</string>
+                <string>Gamma</string>
+                <string>Delta</string>
+                <string>Epsilon</string>
+                <string>Zeta</string>
+                <string>Eta</string>
+                <string>Theta</string>
+                <string>Iota</string>
+                <string>Kappa</string>
+                <string>Lambda</string>
+                <string>Mu</string>
+                <string>Nu</string>
+                <string>Xi</string>
+                <string>Omicron</string>
+                <string>Pi</string>
+                <string>Rho</string>
+                <string>Sigma</string>
+                <string>Tau</string>
+                <string>Upsilon</string>
+                <string>Phi</string>
+                <string>Chi</string>
+                <string>Psi</string>
+                <string>Omega</string>
+                <string>alpha</string>
+                <string>beta</string>
+                <string>gamma</string>
+                <string>delta</string>
+                <string>epsilon</string>
+                <string>zeta</string>
+                <string>eta</string>
+                <string>theta</string>
+                <string>iota</string>
+                <string>kappa</string>
+                <string>lambda</string>
+                <string>mu</string>
+                <string>nu</string>
+                <string>xi</string>
+                <string>omicron</string>
+                <string>pi</string>
+                <string>rho</string>
+                <string>sigmaf</string>
+                <string>sigma</string>
+                <string>tau</string>
+                <string>upsilon</string>
+                <string>phi</string>
+                <string>chi</string>
+                <string>psi</string>
+                <string>omega</string>
+                <string>thetasym</string>
+                <string>upsilh</string>
+                <string>piv</string>
+                <string>ensp</string>
+                <string>emsp</string>
+                <string>thinsp</string>
+                <string>zwnj</string>
+                <string>zwj</string>
+                <string>lrm</string>
+                <string>rlm</string>
+                <string>ndash</string>
+                <string>mdash</string>
+                <string>lsquo</string>
+                <string>rsquo</string>
+                <string>sbquo</string>
+                <string>ldquo</string>
+                <string>rdquo</string>
+                <string>bdquo</string>
+                <string>dagger</string>
+                <string>Dagger</string>
+                <string>bull</string>
+                <string>hellip</string>
+                <string>permil</string>
+                <string>prime</string>
+                <string>Prime</string>
+                <string>lsaquo</string>
+                <string>rsaquo</string>
+                <string>oline</string>
+                <string>frasl</string>
+                <string>euro</string>
+                <string>image</string>
+                <string>weierp</string>
+                <string>real</string>
+                <string>trade</string>
+                <string>alefsym</string>
+                <string>larr</string>
+                <string>uarr</string>
+                <string>rarr</string>
+                <string>darr</string>
+                <string>harr</string>
+                <string>crarr</string>
+                <string>lArr</string>
+                <string>uArr</string>
+                <string>rArr</string>
+                <string>dArr</string>
+                <string>hArr</string>
+                <string>forall</string>
+                <string>part</string>
+                <string>exist</string>
+                <string>empty</string>
+                <string>nabla</string>
+                <string>isin</string>
+                <string>notin</string>
+                <string>ni</string>
+                <string>prod</string>
+                <string>sum</string>
+                <string>minus</string>
+                <string>lowast</string>
+                <string>radic</string>
+                <string>prop</string>
+                <string>infin</string>
+                <string>ang</string>
+                <string>and</string>
+                <string>or</string>
+                <string>cap</string>
+                <string>cup</string>
+                <string>int</string>
+                <string>there4</string>
+                <string>sim</string>
+                <string>cong</string>
+                <string>asymp</string>
+                <string>ne</string>
+                <string>equiv</string>
+                <string>le</string>
+                <string>ge</string>
+                <string>sub</string>
+                <string>sup</string>
+                <string>nsub</string>
+                <string>sube</string>
+                <string>supe</string>
+                <string>oplus</string>
+                <string>otimes</string>
+                <string>perp</string>
+                <string>sdot</string>
+                <string>lceil</string>
+                <string>rceil</string>
+                <string>lfloor</string>
+                <string>rfloor</string>
+                <string>lang</string>
+                <string>rang</string>
+                <string>loz</string>
+                <string>spades</string>
+                <string>clubs</string>
+                <string>hearts</string>
+                <string>diams</string>
+            </strings>
+        </scope>
+    </scopes>
+    
+    <collections>
+        <!-- Tags -->
+        <collection name="tags">
+            <!-- Script -->
+            <scope name="html.embedded.script" spell-check="false" lookup="documentation">
+                <starts-with>
+                    <expression>(?=&lt;(?i:script)\b)</expression>
+                </starts-with>
+                <ends-with>
+                    <expression>(?=&lt;/(?i:script)\b)</expression>
+                </ends-with>
+                <subscopes>
+                    <scope name="html.tag.script.open">
+                        <symbol type="tag-script">
+                            <display-name>
+                                <component variable="name" />
+                                <component selector="html.tag.attribute.value.link" prepend=" – " />
+                            </display-name>
+                            <context behavior="start" group-by-name="true">
+                                <auto-close string="&lt;/" completion="${name}&gt;" />
+                            </context>
+                        </symbol>
+                        <starts-with>
+                            <expression>&lt;((?i:script))</expression>
+                            <capture number="1" name="html.tag.name" />
+                        </starts-with>
+                        <ends-with>
+                            <expression>/?&gt;</expression>
+                        </ends-with>
+                        <subscopes>
+                            <include syntax="self" collection="attributes" />
+                        </subscopes>
+                    </scope>
+                    <scope name="html.embedded.script.content">
+                        <starts-with>
+                            <expression>(?&lt;=&gt;)</expression>
+                        </starts-with>
+                        <ends-with>
+                            <expression>(?=&lt;/(?i:script)\b)</expression>
+                        </ends-with>
+                        <subsyntax name="javascript">
+                            <cut-off>
+                                <expression>(?=&lt;/(?i:script|head|body|div)\b)</expression>
+                            </cut-off>
+                        </subsyntax>
+                    </scope>
+                </subscopes>
+            </scope>
+            
+            <!-- Style -->
+            <scope name="html.embedded.style" spell-check="false" lookup="documentation">
+                <starts-with>
+                    <expression>(?=&lt;(?i:style)\b)</expression>
+                </starts-with>
+                <ends-with>
+                    <expression>(?=&lt;/(?i:style)\b)</expression>
+                </ends-with>
+                <subscopes>
+                    <scope name="html.tag.style.open">
+                        <symbol type="tag-style">
+                            <context behavior="start" group-by-name="true">
+                                <auto-close string="&lt;/" completion="${name}&gt;" />
+                            </context>
+                        </symbol>
+                        <starts-with>
+                            <expression>&lt;((?i:style))</expression>
+                            <capture number="1" name="html.tag.name" />
+                        </starts-with>
+                        <ends-with>
+                            <expression>/?&gt;</expression>
+                        </ends-with>
+                        <subscopes>
+                            <include syntax="self" collection="attributes" />
+                        </subscopes>
+                    </scope>
+                    <scope name="html.embedded.style.content">
+                        <starts-with>
+                            <expression>(?&lt;=&gt;)</expression>
+                        </starts-with>
+                        <ends-with>
+                            <expression>(?=&lt;/(?i:style)\b)</expression>
+                        </ends-with>
+                        <subsyntax name="css">
+                            <cut-off>
+                                <expression>(?=&lt;/(?i:style|head|body|div)\b)</expression>
+                            </cut-off>
+                        </subsyntax>
+                    </scope>
+                </subscopes>
+            </scope>
+            
+            <!-- Closing Tags -->
+            <scope name="html.tag.close" spell-check="false" lookup="documentation">
+                <symbol type="tag">
+                    <context behavior="end" group-by-name="true" unclosed="truncate" />
+                </symbol>
+                <expression>&lt;/([a-zA-Z_][a-zA-Z0-9_:-]*)&gt;</expression>
+                <capture number="1" name="html.tag.name" />
+            </scope>
+            
+            <!-- Headings -->
+            <scope name="html.tag.open.paired" spell-check="false" lookup="documentation">
+                <symbol type="tag-heading">
+                    <display-name>
+                        <component variable="name" />
+                        <component selector="tag.attribute.value.id" prepend="#" />
+                        <component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+                    </display-name>
+                    <context behavior="start" group-by-name="true" unclosed="parent">
+                        <auto-close string="&lt;/" completion="${name}&gt;" />
+                    </context>
+                </symbol>
+                <starts-with>
+                    <strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+                        <string>h1</string>
+                        <string>h2</string>
+                        <string>h3</string>
+                        <string>h4</string>
+                        <string>h5</string>
+                        <string>h6</string>
+                        <string>header</string>
+                        <string>hgroup</string>
+                    </strings>
+                    <capture number="1" name="html.tag.name" />
+                </starts-with>
+                <ends-with>
+                    <expression>/?&gt;</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attributes" />
+                </subscopes>
+            </scope>
+            
+            <!-- Sections -->
+            <scope name="html.tag.open.paired" spell-check="false" lookup="documentation">
+                <symbol type="tag-section">
+                    <display-name>
+                        <component variable="name" />
+                        <component selector="tag.attribute.value.id" prepend="#" />
+                        <component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+                    </display-name>
+                    <context behavior="start" group-by-name="true" unclosed="parent">
+                        <auto-close string="&lt;/" completion="${name}&gt;" />
+                    </context>
+                </symbol>
+                <starts-with>
+                    <strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+                        <string>article</string>
+                        <string>aside</string>
+                        <string>main</string>
+                        <string>nav</string>
+                        <string>section</string>
+                    </strings>
+                    <capture number="1" name="html.tag.name" />
+                </starts-with>
+                <ends-with>
+                    <expression>/?&gt;</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attributes" />
+                </subscopes>
+            </scope>
+            
+            <!-- Lists -->
+            <scope name="html.tag.open.paired" spell-check="false" lookup="documentation">
+                <symbol type="tag-ul">
+                    <display-name>
+                        <component variable="name" />
+                        <component selector="tag.attribute.value.id" prepend="#" />
+                        <component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+                    </display-name>
+                    <context behavior="start" group-by-name="true" unclosed="parent">
+                        <auto-close string="&lt;/" completion="${name}&gt;" />
+                    </context>
+                </symbol>
+                <starts-with>
+                    <strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+                        <string>ul</string>
+                    </strings>
+                    <capture number="1" name="html.tag.name" />
+                </starts-with>
+                <ends-with>
+                    <expression>/?&gt;</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attributes" />
+                </subscopes>
+            </scope>
+            <scope name="html.tag.open.paired" spell-check="false" lookup="documentation">
+                <symbol type="tag-ol">
+                    <display-name>
+                        <component variable="name" />
+                        <component selector="tag.attribute.value.id" prepend="#" />
+                        <component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+                    </display-name>
+                    <context behavior="start" group-by-name="true" unclosed="parent">
+                        <auto-close string="&lt;/" completion="${name}&gt;" />
+                    </context>
+                </symbol>
+                <starts-with>
+                    <strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+                        <string>ol</string>
+                    </strings>
+                    <capture number="1" name="html.tag.name" />
+                </starts-with>
+                <ends-with>
+                    <expression>/?&gt;</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attributes" />
+                </subscopes>
+            </scope>
+            <scope name="html.tag.open.paired" spell-check="false" lookup="documentation">
+                <symbol type="tag-li">
+                    <display-name>
+                        <component variable="name" />
+                        <component selector="tag.attribute.value.id" prepend="#" />
+                        <component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+                    </display-name>
+                    <context behavior="start" group-by-name="true" unclosed="parent">
+                        <auto-close string="&lt;/" completion="${name}&gt;" />
+                    </context>
+                </symbol>
+                <starts-with>
+                    <strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+                        <string>li</string>
+                    </strings>
+                    <capture number="1" name="html.tag.name" />
+                </starts-with>
+                <ends-with>
+                    <expression>/?&gt;</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attributes" />
+                </subscopes>
+            </scope>
+            <scope name="html.tag.open.paired" spell-check="false" lookup="documentation">
+                <symbol type="tag-form">
+                    <display-name>
+                        <component variable="name" />
+                        <component selector="tag.attribute.value.id" prepend="#" />
+                        <component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+                    </display-name>
+                    <context behavior="start" group-by-name="true" unclosed="parent">
+                        <auto-close string="&lt;/" completion="${name}&gt;" />
+                    </context>
+                </symbol>
+                <starts-with>
+                    <strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+                        <string>form</string>
+                    </strings>
+                    <capture number="1" name="html.tag.name" />
+                </starts-with>
+                <ends-with>
+                    <expression>/?&gt;</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attributes" />
+                </subscopes>
+            </scope>
+            
+            <!-- Anchors -->
+            <scope name="html.tag.open.paired" spell-check="false" lookup="documentation">
+                <symbol type="tag-anchor">
+                    <display-name>
+                        <component variable="name" />
+                        <component selector="tag.attribute.value.id" prepend="#" />
+                        <component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+                        <component selector="html.tag.attribute.value.link" prepend=" – " />
+                    </display-name>
+                    <context behavior="start" group-by-name="true" unclosed="parent">
+                        <auto-close string="&lt;/" completion="${name}&gt;" />
+                    </context>
+                </symbol>
+                <starts-with>
+                    <strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+                        <string>a</string>
+                    </strings>
+                    <capture number="1" name="html.tag.name" />
+                </starts-with>
+                <ends-with>
+                    <expression>/?&gt;</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attributes" />
+                </subscopes>
+            </scope>
+            
+            <!-- Elements that are singular tags that should not capture other tags -->
+            <scope name="html.tag.open.single" spell-check="false" lookup="documentation">
+                <symbol type="tag-link">
+                    <display-name>
+                        <component variable="name" />
+                        <component selector="html.tag.attribute.value.link" prepend=" – " />
+                    </display-name>
+                    <context behavior="subtree" group-by-name="true" unclosed="truncate" />
+                </symbol>
+                <starts-with>
+                    <strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+                        <string>link</string>
+                    </strings>
+                    <capture number="1" name="html.tag.name" />
+                </starts-with>
+                <ends-with>
+                    <expression>/?&gt;</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attributes" />
+                </subscopes>
+            </scope>
+            <scope name="html.tag.open.single" spell-check="false" lookup="documentation">
+                <symbol type="tag-image">
+                    <context behavior="subtree" group-by-name="true" unclosed="truncate" />
+                </symbol>
+                <starts-with>
+                    <strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+                        <string>img</string>
+                    </strings>
+                    <capture number="1" name="html.tag.name" />
+                </starts-with>
+                <ends-with>
+                    <expression>/?&gt;</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attributes" />
+                </subscopes>
+            </scope>
+            <scope name="html.tag.open.single" spell-check="false" lookup="documentation">
+                <symbol type="tag-form-field">
+                    <context behavior="subtree" group-by-name="true" unclosed="truncate" />
+                </symbol>
+                <starts-with>
+                    <strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+                        <string>input</string>
+                    </strings>
+                    <capture number="1" name="html.tag.name" />
+                </starts-with>
+                <ends-with>
+                    <expression>/?&gt;</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attributes" />
+                </subscopes>
+            </scope>
+            <scope name="html.tag.open.single" spell-check="false" lookup="documentation">
+                <symbol type="tag-meta">
+                    <display-name>
+                        <component variable="name" />
+                        <component selector="tag.attribute.value.http-equiv" prepend=" – " />
+                        <component selector="tag.attribute.value.name-attr" prepend=" – " />
+                    </display-name>
+                    <context behavior="subtree" group-by-name="true" unclosed="truncate" />
+                </symbol>
+                <starts-with>
+                    <strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+                        <string>meta</string>
+                    </strings>
+                    <capture number="1" name="html.tag.name" />
+                </starts-with>
+                <ends-with>
+                    <expression>/?&gt;</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attributes" />
+                </subscopes>
+            </scope>
+            
+            <!-- All other void elements (self-closing tags) -->
+            <scope name="html.tag.open.single" spell-check="false" lookup="documentation">
+                <symbol type="tag">
+                    <context behavior="subtree" group-by-name="true" unclosed="truncate" />
+                </symbol>
+                <starts-with>
+                    <strings prefix="&lt;" suffix="\b" word-boundary="false" case-insensitive="true">
+                        <string>area</string>
+                        <string>base</string>
+                        <string>br</string>
+                        <string>col</string>
+                        <string>command</string>
+                        <string>embed</string>
+                        <string>hr</string>
+                        <string>keygen</string>
+                        <string>param</string>
+                        <string>source</string>
+                        <string>track</string>
+                        <string>wbr</string>
+                    </strings>
+                    <capture number="1" name="html.tag.name" />
+                </starts-with>
+                <ends-with>
+                    <expression>/?&gt;</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attributes" />
+                </subscopes>
+            </scope>
+            
+            <!-- All other tags -->
+            <scope name="html.tag.open.paired" spell-check="false" lookup="documentation">
+                <symbol type="tag">
+                    <display-name>
+                        <component variable="name" />
+                        <component selector="tag.attribute.value.id" prepend="#" />
+                        <component selector="tag.attribute.value.class" prepend="." replace="\s+" replace-with="." />
+                    </display-name>
+                    <context behavior="start" group-by-name="true" unclosed="parent">
+                        <auto-close string="&lt;/" completion="${name}&gt;" />
+                    </context>
+                </symbol>
+                <starts-with>
+                    <expression>&lt;(?!/)([a-zA-Z_][a-zA-Z0-9_:-]*)?</expression>
+                    <capture number="1" name="html.tag.name" />
+                </starts-with>
+                <ends-with>
+                    <expression>/?&gt;</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attributes" />
+                </subscopes>
+            </scope>
+        </collection>
+        
+        <!-- Tag Attributes -->
+        <collection name="attributes">
+            <!-- ID attribute -->
+            <scope name="html.tag.attribute.id.double-quoted">
+                <starts-with>
+                    <expression>((?i:id))\s*(=)\s*(&quot;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>&quot;</expression>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subscopes>
+                    <scope name="html.tag.attribute.id.value.double-quoted">
+                        <starts-with>
+                            <expression>(?&lt;=&quot;)</expression>
+                        </starts-with>
+                        <ends-with>
+                            <expression>(?=&quot;)</expression>
+                        </ends-with>
+                        <subscopes>
+                            <scope name="html.tag.attribute.value.escape">
+                                <expression>\\\\|\\&quot;</expression>
+                            </scope>
+                        </subscopes>
+                    </scope>
+                </subscopes>
+            </scope>
+            <scope name="html.tag.attribute.id.single-quoted">
+                <starts-with>
+                    <expression>((?i:id))\s*(=)\s*(&apos;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>&apos;</expression>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subscopes>
+                    <scope name="html.tag.attribute.id.value.double-quoted">
+                        <starts-with>
+                            <expression>(?&lt;=&apos;)</expression>
+                        </starts-with>
+                        <ends-with>
+                            <expression>(?=&apos;)</expression>
+                        </ends-with>
+                        <subscopes>
+                            <scope name="html.tag.attribute.value.escape">
+                                <expression>\\\\|\\&apos;</expression>
+                            </scope>
+                        </subscopes>
+                    </scope>
+                </subscopes>
+            </scope>
+            
+            <!-- Class attribute -->
+            <scope name="html.tag.attribute.class.double-quoted">
+                <starts-with>
+                    <expression>((?i:class))\s*(=)\s*(&quot;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>&quot;</expression>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subscopes>
+                    <scope name="html.tag.attribute.class.value.double-quoted">
+                        <starts-with>
+                            <expression>(?&lt;=&quot;)</expression>
+                        </starts-with>
+                        <ends-with>
+                            <expression>(?=&quot;)</expression>
+                        </ends-with>
+                        <subscopes>
+                            <scope name="html.tag.attribute.value.escape">
+                                <expression>\\\\|\\&quot;</expression>
+                            </scope>
+                        </subscopes>
+                    </scope>
+                </subscopes>
+            </scope>
+            <scope name="html.tag.attribute.class.single-quoted">
+                <starts-with>
+                    <expression>((?i:class))\s*(=)\s*(&apos;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>&apos;</expression>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subscopes>
+                    <scope name="html.tag.attribute.class.value.double-quoted">
+                        <starts-with>
+                            <expression>(?&lt;=&apos;)</expression>
+                        </starts-with>
+                        <ends-with>
+                            <expression>(?=&apos;)</expression>
+                        </ends-with>
+                        <subscopes>
+                            <scope name="html.tag.attribute.value.escape">
+                                <expression>\\\\|\\&apos;</expression>
+                            </scope>
+                        </subscopes>
+                    </scope>
+                </subscopes>
+            </scope>
+            
+            <!-- ARIA attributes -->
+            <scope name="html.tag.attribute.aria-id.double-quoted">
+                <starts-with>
+                    <expression>((?i:aria-(?:describedby|labelledby)))\s*(=)\s*(&quot;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>&quot;</expression>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attribute-values-double-quoted" />
+                </subscopes>
+            </scope>
+            <scope name="html.tag.attribute.aria-id.single-quoted">
+                <starts-with>
+                    <expression>((?i:aria-(?:describedby|labelledby)))\s*(=)\s*(&apos;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>&apos;</expression>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attribute-values-single-quoted" />
+                </subscopes>
+            </scope>
+            
+            <!-- Style attributes -->
+            <scope name="html.tag.attribute.style.double-quoted">
+                <starts-with>
+                    <expression>((?i:style))\s*(=)\s*(&quot;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>&quot;</expression>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subsyntax name="css" collection="attributes">
+                    <cut-off>
+                        <expression>(?=(?!\\)&quot;)|$</expression>
+                    </cut-off>
+                </subsyntax>
+            </scope>
+            <scope name="html.tag.attribute.style.single-quoted">
+                <starts-with>
+                    <expression>((?i:style))\s*(=)\s*(&apos;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>&apos;</expression>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subsyntax name="css" collection="attributes">
+                    <cut-off>
+                        <expression>(?=(?!\\)&apos;)|$</expression>
+                    </cut-off>
+                </subsyntax>
+            </scope>
+            
+            <!-- Media attributes -->
+            <scope name="html.tag.attribute.media">
+                <starts-with>
+                    <expression>((?i:media))\s*(=)\s*(&quot;|&apos;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <template>\3</template>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subscopes>
+                    <include syntax="css" collection="media-types" />
+                </subscopes>
+            </scope>
+            
+            <!-- Meta attributes -->
+            <scope name="html.tag.attribute.http-equiv.double-quoted">
+                <starts-with>
+                    <expression>((?i:http-equiv))\s*(=)\s*(&quot;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>&quot;</expression>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subscopes>
+                    <scope name="html.tag.attribute.value.http-equiv">
+                        <starts-with>
+                            <expression>(?&lt;=&quot;)</expression>
+                        </starts-with>
+                        <ends-with>
+                            <expression>(?=&quot;)</expression>
+                        </ends-with>
+                        <subscopes>
+                            <scope name="html.tag.attribute.value.escape">
+                                <expression>\\\\|\\&quot;</expression>
+                            </scope>
+                        </subscopes>
+                    </scope>
+                </subscopes>
+            </scope>
+            <scope name="html.tag.attribute.http-equiv.single-quoted">
+                <starts-with>
+                    <expression>((?i:http-equiv))\s*(=)\s*(&apos;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>&apos;</expression>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subscopes>
+                    <scope name="html.tag.attribute.value.http-equiv">
+                        <starts-with>
+                            <expression>(?&lt;=&apos;)</expression>
+                        </starts-with>
+                        <ends-with>
+                            <expression>(?=&apos;)</expression>
+                        </ends-with>
+                        <subscopes>
+                            <scope name="html.tag.attribute.value.escape">
+                                <expression>\\\\|\\&apos;</expression>
+                            </scope>
+                        </subscopes>
+                    </scope>
+                </subscopes>
+            </scope>
+            <scope name="html.tag.attribute.name-attr.double-quoted">
+                <starts-with>
+                    <expression>((?i:name))\s*(=)\s*(&quot;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>&quot;</expression>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subscopes>
+                    <scope name="html.tag.attribute.value.name-attr">
+                        <starts-with>
+                            <expression>(?&lt;=&quot;)</expression>
+                        </starts-with>
+                        <ends-with>
+                            <expression>(?=&quot;)</expression>
+                        </ends-with>
+                        <subscopes>
+                            <scope name="html.tag.attribute.value.escape">
+                                <expression>\\\\|\\&quot;</expression>
+                            </scope>
+                        </subscopes>
+                    </scope>
+                </subscopes>
+            </scope>
+            <scope name="html.tag.attribute.name-attr.single-quoted">
+                <starts-with>
+                    <expression>((?i:name))\s*(=)\s*(&apos;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>&apos;</expression>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subscopes>
+                    <scope name="html.tag.attribute.value.name-attr">
+                        <starts-with>
+                            <expression>(?&lt;=&apos;)</expression>
+                        </starts-with>
+                        <ends-with>
+                            <expression>(?=&apos;)</expression>
+                        </ends-with>
+                        <subscopes>
+                            <scope name="html.tag.attribute.value.escape">
+                                <expression>\\\\|\\&apos;</expression>
+                            </scope>
+                        </subscopes>
+                    </scope>
+                </subscopes>
+            </scope>
+            
+            <!-- Link attributes -->
+            <scope name="html.tag.attribute.href.double-quoted">
+                <starts-with>
+                    <expression>((?i:href))\s*(=)\s*(&quot;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>&quot;</expression>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subscopes>
+                    <scope name="html.tag.attribute.value.link.filepath">
+                        <starts-with>
+                            <expression>(?&lt;=&quot;)</expression>
+                        </starts-with>
+                        <ends-with>
+                            <expression>(?=&quot;)</expression>
+                        </ends-with>
+                        <subscopes>
+                            <scope name="html.tag.attribute.value.escape">
+                                <expression>\\\\|\\&quot;</expression>
+                            </scope>
+                        </subscopes>
+                    </scope>
+                </subscopes>
+            </scope>
+            <scope name="html.tag.attribute.href.single-quoted">
+                <starts-with>
+                    <expression>((?i:href))\s*(=)\s*(&apos;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>&apos;</expression>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subscopes>
+                    <scope name="html.tag.attribute.value.link.filepath">
+                        <starts-with>
+                            <expression>(?&lt;=&apos;)</expression>
+                        </starts-with>
+                        <ends-with>
+                            <expression>(?=&apos;)</expression>
+                        </ends-with>
+                        <subscopes>
+                            <scope name="html.tag.attribute.value.escape">
+                                <expression>\\\\|\\&apos;</expression>
+                            </scope>
+                        </subscopes>
+                    </scope>
+                </subscopes>
+            </scope>
+            <scope name="html.tag.attribute.src.double-quoted">
+                <starts-with>
+                    <expression>((?i:src))\s*(=)\s*(&quot;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>&quot;</expression>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subscopes>
+                    <scope name="html.tag.attribute.value.link.filepath">
+                        <starts-with>
+                            <expression>(?&lt;=&quot;)</expression>
+                        </starts-with>
+                        <ends-with>
+                            <expression>(?=&quot;)</expression>
+                        </ends-with>
+                        <subscopes>
+                            <scope name="html.tag.attribute.value.escape">
+                                <expression>\\\\|\\&quot;</expression>
+                            </scope>
+                        </subscopes>
+                    </scope>
+                </subscopes>
+            </scope>
+            <scope name="html.tag.attribute.src.single-quoted">
+                <starts-with>
+                    <expression>((?i:src))\s*(=)\s*(&apos;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>&apos;</expression>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subscopes>
+                    <scope name="html.tag.attribute.value.link.filepath">
+                        <starts-with>
+                            <expression>(?&lt;=&apos;)</expression>
+                        </starts-with>
+                        <ends-with>
+                            <expression>(?=&apos;)</expression>
+                        </ends-with>
+                        <subscopes>
+                            <scope name="html.tag.attribute.value.escape">
+                                <expression>\\\\|\\&apos;</expression>
+                            </scope>
+                        </subscopes>
+                    </scope>
+                </subscopes>
+            </scope>
+            
+            <!-- Script attributes -->
+            <scope name="html.tag.attribute.event-handler">
+                <starts-with>
+                    <strings suffix="\s*(=)\s*(&quot;|&apos;)" case-insensitive="true">
+                        <string>onafterprint</string>
+                        <string>onbeforeprint</string>
+                        <string>onbeforeunload</string>
+                        <string>onerror</string>
+                        <string>onhaschange</string>
+                        <string>onload</string>
+                        <string>onmessage</string>
+                        <string>onoffline</string>
+                        <string>ononline</string>
+                        <string>onpagehide</string>
+                        <string>onpageshow</string>
+                        <string>onpopstate</string>
+                        <string>onredo</string>
+                        <string>onresize</string>
+                        <string>onstorage</string>
+                        <string>onundo</string>
+                        <string>onunload</string>
+                        
+                        <string>onblur</string>
+                        <string>onchange</string>
+                        <string>oncontextmenu</string>
+                        <string>onfocus</string>
+                        <string>onformchange</string>
+                        <string>onforminput</string>
+                        <string>oninvalid</string>
+                        <string>onreset</string>
+                        <string>onselect</string>
+                        <string>onsubmit</string>
+                        
+                        <string>onkeydown</string>
+                        <string>onkeypress</string>
+                        <string>onkeyup</string>
+                        
+                        <string>onclick</string>
+                        <string>ondblclick</string>
+                        <string>ondrag</string>
+                        <string>ondragend</string>
+                        <string>ondragenter</string>
+                        <string>ondragleave</string>
+                        <string>ondragover</string>
+                        <string>ondragstart</string>
+                        <string>ondrop</string>
+                        <string>onmousedown</string>
+                        <string>onmousemove</string>
+                        <string>onmouseout</string>
+                        <string>onmouseover</string>
+                        <string>onmouseup</string>
+                        <string>onmousewheel</string>
+                        <string>onscroll</string>
+                        
+                        <string>onabort</string>
+                        <string>oncanplay</string>
+                        <string>oncanplaythrough</string>
+                        <string>ondurationchange</string>
+                        <string>onemptied</string>
+                        <string>onended</string>
+                        <string>onerror</string>
+                        <string>onloadeddata</string>
+                        <string>onloadedmetadata</string>
+                        <string>onloadstart</string>
+                        <string>onpause</string>
+                        <string>onplay</string>
+                        <string>onplaying</string>
+                        <string>onprogress</string>
+                        <string>onratechange</string>
+                        <string>onreadystatechange</string>
+                        <string>onseeked</string>
+                        <string>onseeking</string>
+                        <string>onstalled</string>
+                        <string>onsuspend</string>
+                        <string>ontimeupdate</string>
+                        <string>onvolumechange</string>
+                        <string>onwaiting</string>
+                    </strings>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <template>\3</template>
+                    <capture number="0" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subsyntax name="javascript">
+                    <cut-off>
+                        <expression>\\</expression>
+                    </cut-off>
+                </subsyntax>
+            </scope>
+            
+            <!-- Generic attributes -->
+            <scope name="html.tag.attribute.double-quoted">
+                <starts-with>
+                    <expression>([a-zA-Z_][a-zA-Z0-9-_]*)\s*(=)\s*(&quot;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>(&quot;)</expression>
+                    <capture number="1" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attribute-values-double-quoted" />
+                </subscopes>
+            </scope>
+            <scope name="html.tag.attribute.single-quoted">
+                <starts-with>
+                    <expression>([a-zA-Z_][a-zA-Z0-9-_]*)\s*(=)\s*(&apos;)</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                    <capture number="3" name="html.tag.attribute.value.quote.left" />
+                </starts-with>
+                <ends-with>
+                    <expression>(&apos;)</expression>
+                    <capture number="1" name="html.tag.attribute.value.quote.right" />
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attribute-values-single-quoted" />
+                </subscopes>
+            </scope>
+            <scope name="html.tag.attribute.unquoted">
+                <starts-with>
+                    <expression>([a-zA-Z_][a-zA-Z0-9-_]*)\s*(=)\s*</expression>
+                    <capture number="1" name="html.tag.attribute.name" />
+                    <capture number="2" name="html.tag.attribute.equals-sign" />
+                </starts-with>
+                <ends-with>
+                    <expression>(?=\s|/|&gt;|$)</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="attribute-values-unquoted" />
+                </subscopes>
+            </scope>
+            <scope name="html.tag.attribute.bare">
+                <expression>([a-zA-Z_][a-zA-Z0-9-_]*)(?!\s*=)</expression>
+                <capture number="1" name="html.tag.attribute.name" />
+            </scope>
+        </collection>
+        
+        <!-- Attribute values -->
+        <collection name="attribute-values-double-quoted">
+            <scope name="html.tag.attribute.value.double-quoted">
+                <starts-with>
+                    <expression>(?&lt;=&quot;)</expression>
+                </starts-with>
+                <ends-with>
+                    <expression>(?=&quot;)</expression>
+                </ends-with>
+                <subscopes>
+                    <scope name="html.tag.attribute.value.escape">
+                        <expression>\\\\|\\&quot;</expression>
+                    </scope>
+                </subscopes>
+            </scope>
+        </collection>
+        
+        <collection name="attribute-values-single-quoted">
+            <scope name="html.tag.attribute.value.double-quoted">
+                <starts-with>
+                    <expression>(?&lt;=&apos;)</expression>
+                </starts-with>
+                <ends-with>
+                    <expression>(?=&apos;)</expression>
+                </ends-with>
+                <subscopes>
+                    <scope name="html.tag.attribute.value.escape">
+                        <expression>\\\\|\\&apos;</expression>
+                    </scope>
+                </subscopes>
+            </scope>
+        </collection>
+        
+        <collection name="attribute-values-unquoted">
+            <scope name="html.tag.attribute.value">
+                <expression>[a-zA-Z0-9-_]+</expression>
+            </scope>
+        </collection>
+    </collections>
+</syntax>
