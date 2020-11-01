@@ -1,4 +1,5 @@
 import { dependencyManagement } from 'nova-extension-utils'
+import { makeFileExecutable } from './utils'
 
 var langServer: SvelteLanguageServer | null = null
 
@@ -46,7 +47,7 @@ class SvelteLanguageServer {
     this.stop()
   }
 
-  start(path: string) {
+  async start(path: string) {
     if (this.languageClient) {
       this.languageClient.stop()
       nova.subscriptions.remove(this.languageClient)
@@ -63,13 +64,17 @@ class SvelteLanguageServer {
       console.log('using server at', path)
     }
 
+    let runShPath = nova.path.join(nova.extension.path, 'run.sh')
+
+    await makeFileExecutable(runShPath)
+
     // Create the client
     var client = new DisposableLanguageClient(
       'svelte-langserver',
       'Svelte Language Server',
       {
         type: 'stdio',
-        path: nova.path.join(nova.extension.path, 'run.sh'),
+        path: runShPath,
         env: {
           SVELTE_SERVER: path,
           WORKDIR: nova.workspace.path || '.',

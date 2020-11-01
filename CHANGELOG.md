@@ -1,3 +1,7 @@
+# v0.1.4
+
+- `chmod +x` before try starting server.
+
 # v0.1.3
 
 - Remove some unused code.
