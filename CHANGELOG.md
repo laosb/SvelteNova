@@ -1,3 +1,7 @@
+# v0.1.3
+
+- Remove some unused code.
+
 # v0.1.2
 
 - Fix not starting Svelte Language Server on packaged extension release.

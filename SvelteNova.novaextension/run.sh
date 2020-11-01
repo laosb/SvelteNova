@@ -2,4 +2,4 @@
 
 cd "$WORKDIR"
 
-"$SVELTE_SERVER" --stdio
+node "$SVELTE_SERVER" --stdio

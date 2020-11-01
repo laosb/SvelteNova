@@ -2,24 +2,9 @@ import { dependencyManagement } from 'nova-extension-utils'
 
 var langServer: SvelteLanguageServer | null = null
 
-const wrapCommand = (command: (...params: any[]) => void) => {
-  return (...args: any[]) => {
-    try {
-      command(...args)
-    } catch (err) {
-      nova.workspace.showErrorMessage(err)
-    }
-  }
-}
-nova.commands.register(
-  'sb.lao.svelte-nova.commands.openWorkspaceConfig',
-  wrapCommand((workspace) => {
-    workspace.openConfig()
-  })
-)
-nova.commands.register('sb.lao.svelte-nova.commands.reload', () => {
+nova.commands.register('sb.lao.svelte-nova.commands.reload', async () => {
   deactivate()
-  activate()
+  await activate()
 })
 dependencyManagement.registerDependencyUnlockCommand(
   'sb.lao.svelte-nova.commands.forceClearLock'
