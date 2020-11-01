@@ -71,8 +71,9 @@ class SvelteLanguageServer {
       path = nova.path.join(
         dependencyManagement.getDependencyDirectory(),
         'node_modules',
-        '.bin',
-        'svelteserver'
+        'svelte-language-server',
+        'bin',
+        'server.js'
       )
       console.log('using server at', path)
     }

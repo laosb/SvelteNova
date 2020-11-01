@@ -3,7 +3,7 @@
   "name": "Svelte",
   "organization": "Shibo Lyu",
   "description": "LSP support for Svelte.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "categories": ["languages"],
   "license": "MIT",
   "bugs": "https://github.com/laosb/SvelteNova/issues",
@@ -17,23 +17,19 @@
     "filesystem": "readwrite"
   },
 
-  "activationEvents": ["onLanguage:svelte"],
+  "activationEvents": ["onLanguage:svelte", "onWorkspaceContains:*.svelte"],
 
   "config": [
     {
       "key": "sb.lao.svelte-nova.language-server-path",
       "title": "Svelte Language Server Path",
       "type": "path",
-      "placeholder": "some /node_modules/.bin/svelteserver"
+      "placeholder": "some node_modules/svelte-language-server/bin/server.js"
     }
   ],
 
   "commands": {
     "extensions": [
-      {
-        "title": "Preferences",
-        "command": "sb.lao.svelte-nova.commands.openWorkspaceConfig"
-      },
       {
         "title": "Reload extension",
         "command": "sb.lao.svelte-nova.commands.reload"
