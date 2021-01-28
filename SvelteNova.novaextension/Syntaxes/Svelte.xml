@@ -350,50 +350,92 @@
     <collections>
         <!-- Tags -->
         <collection name="tags">
-            <!-- Script -->
-            <scope name="html.embedded.script" spell-check="false" lookup="documentation">
-                <starts-with>
-                    <expression>(?=&lt;(?i:script)\b)</expression>
-                </starts-with>
-                <ends-with>
+            <!-- Typescript -->
+            <scope name="html.embedded.block.script" spell-check="false" lookup="documentation">
+              <starts-with>
+                <expression>(?=&lt;(?i:script)\b)(?=[^&gt;]*lang=('ts'|\"ts\"))(?![^/&gt;]*/&gt;\s*$)</expression>
+              </starts-with>
+              <ends-with />
+              <subscopes anchored="true" skip-whitespace="false">
+                <scope name="html.tag.script.open">
+                  <symbol type="tag-script">
+                    <display-name>
+                      <component variable="name" />
+                      <component selector="html.tag.attribute.value.link" prepend=" – " />
+                    </display-name>
+                    <context behavior="start" group-by-name="true">
+                      <auto-close string="&lt;/" completion="${name}&gt;" />
+                    </context>
+                  </symbol>
+                  <starts-with>
+                    <expression>&lt;((?i:script))</expression>
+                    <capture number="1" name="html.tag.name" />
+                  </starts-with>
+                  <ends-with>
+                    <expression>/?&gt;</expression>
+                  </ends-with>
+                  <subscopes>
+                    <include syntax="html" collection="attributes" />
+                  </subscopes>
+                </scope>
+                <scope name="html.embedded.block.script.content">
+                  <starts-with>
+                    <expression>(?&lt;=&gt;)</expression>
+                  </starts-with>
+                  <ends-with>
                     <expression>(?=&lt;/(?i:script)\b)</expression>
-                </ends-with>
-                <subscopes>
-                    <scope name="html.tag.script.open">
-                        <symbol type="tag-script">
-                            <display-name>
-                                <component variable="name" />
-                                <component selector="html.tag.attribute.value.link" prepend=" – " />
-                            </display-name>
-                            <context behavior="start" group-by-name="true">
-                                <auto-close string="&lt;/" completion="${name}&gt;" />
-                            </context>
-                        </symbol>
-                        <starts-with>
-                            <expression>&lt;((?i:script))</expression>
-                            <capture number="1" name="html.tag.name" />
-                        </starts-with>
-                        <ends-with>
-                            <expression>/?&gt;</expression>
-                        </ends-with>
-                        <subscopes>
-                            <include syntax="self" collection="attributes" />
-                        </subscopes>
-                    </scope>
-                    <scope name="html.embedded.script.content">
-                        <starts-with>
-                            <expression>(?&lt;=&gt;)</expression>
-                        </starts-with>
-                        <ends-with>
-                            <expression>(?=&lt;/(?i:script)\b)</expression>
-                        </ends-with>
-                        <subsyntax name="javascript">
-                            <cut-off>
-                                <expression>(?=&lt;/(?i:script|head|body|div)\b)</expression>
-                            </cut-off>
-                        </subsyntax>
-                    </scope>
-                </subscopes>
+                  </ends-with>
+                  <subsyntax name="typescript">
+                    <cut-off>
+                      <expression>(?=&lt;/(?i:script)\b)</expression>
+                    </cut-off>
+                  </subsyntax>
+                </scope>
+              </subscopes>
+            </scope>
+            
+            <!-- Javascript -->
+            <scope name="html.embedded.block.script" spell-check="false" lookup="documentation">
+              <starts-with>
+                <expression>(?=&lt;(?i:script)\b)</expression>
+              </starts-with>
+              <ends-with />
+              <subscopes anchored="true" skip-whitespace="false">
+                <scope name="html.tag.script.open">
+                  <symbol type="tag-script">
+                    <display-name>
+                      <component variable="name" />
+                      <component selector="html.tag.attribute.value.link" prepend=" – " />
+                    </display-name>
+                    <context behavior="start" group-by-name="true">
+                      <auto-close string="&lt;/" completion="${name}&gt;" />
+                    </context>
+                  </symbol>
+                  <starts-with>
+                    <expression>&lt;((?i:script))</expression>
+                    <capture number="1" name="html.tag.name" />
+                  </starts-with>
+                  <ends-with>
+                    <expression>/?&gt;</expression>
+                  </ends-with>
+                  <subscopes>
+                    <include syntax="html" collection="attributes" />
+                  </subscopes>
+                </scope>
+                <scope name="html.embedded.block.script.content">
+                  <starts-with>
+                    <expression>(?&lt;=&gt;)</expression>
+                  </starts-with>
+                  <ends-with>
+                    <expression>(?=&lt;/(?i:script)\b)</expression>
+                  </ends-with>
+                  <subsyntax name="javascript">
+                    <cut-off>
+                      <expression>(?=&lt;/(?i:script)\b)</expression>
+                    </cut-off>
+                  </subsyntax>
+                </scope>
+              </subscopes>
             </scope>
             
             <!-- Style -->

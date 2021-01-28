@@ -1,3 +1,7 @@
+# v0.1.5
+
+- Fixed missing syntax highlighting for script tags (added by @pierreminik who copied updates from @tommasongr's [vue extension](https://github.com/tommasongr/nova-vue)).
+
 # v0.1.4
 
 - `chmod +x` before try starting server.
