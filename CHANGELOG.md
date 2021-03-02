@@ -1,6 +1,8 @@
 # v0.1.5
 
 - Fixed missing syntax highlighting for script tags (added by @pierreminik who copied updates from @tommasongr's [vue extension](https://github.com/tommasongr/nova-vue)).
+- Updated Svelte Language Server to `0.12.15`.
+- Various plugin build dependencies updated.
 
 # v0.1.4
 
