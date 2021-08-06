@@ -3,7 +3,7 @@
   "name": "Svelte",
   "organization": "Shibo Lyu",
   "description": "LSP support for Svelte.",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "categories": ["languages"],
   "license": "MIT",
   "bugs": "https://github.com/laosb/SvelteNova/issues",

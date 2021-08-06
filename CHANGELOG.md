@@ -1,3 +1,7 @@
+# v0.1.7
+
+- Updated Svelte Language Server to `0.14.6`.
+
 # v0.1.6
 
 - Updated Svelte Language Server to `0.13.0`.
