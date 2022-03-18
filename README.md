@@ -10,4 +10,4 @@ Thanks for Svelte team & Panic for delivering their masterpieces!
 
 ## License
 
-MIT. See [LICENSE](LICENSE.md).
+MIT. See [LICENSE](LICENSE).
