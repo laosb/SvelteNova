@@ -1,7 +1,9 @@
 node_modules
+build
 yarn-error.log
 SvelteNova.novaextension/README.md
 SvelteNova.novaextension/CHANGELOG.md
 SvelteNova.novaextension/LICENSE
 SvelteNova.novaextension/Scripts/**/*
+SvelteNova.novaextension/Syntaxes/tree-sitter-svelte.dylib
 .DS_Store

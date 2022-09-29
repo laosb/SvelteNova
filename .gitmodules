@@ -1,0 +1,3 @@
+[submodule "tree-sitter-svelte"]
+	path = tree-sitter-svelte
+	url = https://github.com/Himujjal/tree-sitter-svelte
