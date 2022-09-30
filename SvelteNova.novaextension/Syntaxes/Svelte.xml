@@ -12,6 +12,7 @@
 
     <tree-sitter>
         <highlights />
+        <injections />
     </tree-sitter>
 
     <detectors>
