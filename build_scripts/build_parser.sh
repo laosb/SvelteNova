@@ -11,7 +11,7 @@ pushd tree-sitter-svelte
 ../build_scripts/compile_parser.sh . $NOVAAPP
 popd
 
-mv tree-sitter-svelte/build/lib/libtree-sitter-svelte.dylib SvelteNova.novaextension/Syntaxes/tree-sitter-svelte.dylib
+mv tree-sitter-svelte/build/lib/libtree-sitter-svelte.dylib SvelteNova.novaextension/Syntaxes/libtree-sitter-svelte.dylib
 
 # Clean up the submodule folder to avoid problems
 rm -rf tree-sitter-svelte/build
