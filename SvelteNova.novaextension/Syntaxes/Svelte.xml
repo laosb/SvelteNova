@@ -13,6 +13,7 @@
     <tree-sitter>
         <highlights />
         <injections />
+        <folds />
     </tree-sitter>
 
     <detectors>
