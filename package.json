@@ -9,7 +9,8 @@
   "scripts": {
     "build:tree-sitter": "./build_scripts/build_parser.sh /Applications/Nova.app",
     "build:js": "rollup -c && cp README.md LICENSE CHANGELOG.md SvelteNova.novaextension && rm -rf SvelteNova.novaextension/node_modules",
-    "build": "yarn build:tree-sitter && yarn build:js"
+    "build": "yarn build:tree-sitter && yarn build:js",
+    "sign:tree-sitter": "./build_scripts/sign_lib.sh"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.1.0",
