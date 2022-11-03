@@ -16,3 +16,4 @@ mv tree-sitter-svelte/build/lib/libtree-sitter-svelte.dylib SvelteNova.novaexten
 # Clean up the submodule folder to avoid problems
 rm -rf tree-sitter-svelte/build
 rm tree-sitter-svelte/Makefile
+rm tree-sitter-svelte/libtree-sitter-svelte.dylib
