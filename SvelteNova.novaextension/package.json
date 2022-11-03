@@ -2,6 +2,6 @@
   "name": "sveltenova.novaextension",
   "version": "0.1.8",
   "dependencies": {
-    "svelte-language-server": "^0.14.29"
+    "svelte-language-server": "^0.14.37"
   }
 }

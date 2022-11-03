@@ -8,7 +8,7 @@
       "name": "sveltenova.novaextension",
       "version": "0.1.8",
       "dependencies": {
-        "svelte-language-server": "^0.14.29"
+        "svelte-language-server": "^0.14.37"
       }
     },
     "node_modules/@emmetio/abbreviation": {
@@ -488,20 +488,23 @@
       }
     },
     "node_modules/prettier": {
-      "version": "2.5.1",
-      "resolved": "https://registry.npmjs.org/prettier/-/prettier-2.5.1.tgz",
-      "integrity": "sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==",
+      "version": "2.7.1",
+      "resolved": "https://registry.npmjs.org/prettier/-/prettier-2.7.1.tgz",
+      "integrity": "sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==",
       "bin": {
         "prettier": "bin-prettier.js"
       },
       "engines": {
         "node": ">=10.13.0"
+      },
+      "funding": {
+        "url": "https://github.com/prettier/prettier?sponsor=1"
       }
     },
     "node_modules/prettier-plugin-svelte": {
-      "version": "2.7.0",
-      "resolved": "https://registry.npmjs.org/prettier-plugin-svelte/-/prettier-plugin-svelte-2.7.0.tgz",
-      "integrity": "sha512-fQhhZICprZot2IqEyoiUYLTRdumULGRvw0o4dzl5jt0jfzVWdGqeYW27QTWAeXhoupEZJULmNoH3ueJwUWFLIA==",
+      "version": "2.8.0",
+      "resolved": "https://registry.npmjs.org/prettier-plugin-svelte/-/prettier-plugin-svelte-2.8.0.tgz",
+      "integrity": "sha512-QlXv/U3bUszks3XYDPsk1fsaQC+fo2lshwKbcbO+lrSVdJ+40mB1BfL8OCAk1W9y4pJxpqO/4gqm6NtF3zNGCw==",
       "peerDependencies": {
         "prettier": "^1.16.4 || ^2.0.0",
         "svelte": "^3.2.0"
@@ -621,26 +624,26 @@
       }
     },
     "node_modules/svelte": {
-      "version": "3.48.0",
-      "resolved": "https://registry.npmjs.org/svelte/-/svelte-3.48.0.tgz",
-      "integrity": "sha512-fN2YRm/bGumvjUpu6yI3BpvZnpIm9I6A7HR4oUNYd7ggYyIwSA/BX7DJ+UXXffLp6XNcUijyLvttbPVCYa/3xQ==",
+      "version": "3.52.0",
+      "resolved": "https://registry.npmjs.org/svelte/-/svelte-3.52.0.tgz",
+      "integrity": "sha512-FxcnEUOAVfr10vDU5dVgJN19IvqeHQCS1zfe8vayTfis9A2t5Fhx+JDe5uv/C3j//bB1umpLJ6quhgs9xyUbCQ==",
       "engines": {
         "node": ">= 8"
       }
     },
     "node_modules/svelte-language-server": {
-      "version": "0.14.29",
-      "resolved": "https://registry.npmjs.org/svelte-language-server/-/svelte-language-server-0.14.29.tgz",
-      "integrity": "sha512-BvTQIkNvxSRWnKDgaoMjNErTzFvjJbNhiWdZNfnbg+cuSuuPNug+/Cu0oLdHZdz9Zsu1wI3GOvT/RbgovpAFow==",
+      "version": "0.14.37",
+      "resolved": "https://registry.npmjs.org/svelte-language-server/-/svelte-language-server-0.14.37.tgz",
+      "integrity": "sha512-gTCIYsI8MasoH0DkvIj3ixGZRglTb89SxMWehoqKJMW5SF4WXcCJyLUGfX71TTUcZqZzMu9k9PlddpkdFK2AzA==",
       "dependencies": {
         "@jridgewell/trace-mapping": "^0.3.9",
         "chokidar": "^3.4.1",
         "estree-walker": "^2.0.1",
         "fast-glob": "^3.2.7",
         "lodash": "^4.17.21",
-        "prettier": "2.5.1",
-        "prettier-plugin-svelte": "~2.7.0",
-        "svelte": "^3.48.0",
+        "prettier": "2.7.1",
+        "prettier-plugin-svelte": "~2.8.0",
+        "svelte": "^3.49.0",
         "svelte-preprocess": "~4.10.1",
         "svelte2tsx": "~0.5.0",
         "typescript": "*",
@@ -1267,14 +1270,14 @@
       "integrity": "sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA=="
     },
     "prettier": {
-      "version": "2.5.1",
-      "resolved": "https://registry.npmjs.org/prettier/-/prettier-2.5.1.tgz",
-      "integrity": "sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg=="
+      "version": "2.7.1",
+      "resolved": "https://registry.npmjs.org/prettier/-/prettier-2.7.1.tgz",
+      "integrity": "sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g=="
     },
     "prettier-plugin-svelte": {
-      "version": "2.7.0",
-      "resolved": "https://registry.npmjs.org/prettier-plugin-svelte/-/prettier-plugin-svelte-2.7.0.tgz",
-      "integrity": "sha512-fQhhZICprZot2IqEyoiUYLTRdumULGRvw0o4dzl5jt0jfzVWdGqeYW27QTWAeXhoupEZJULmNoH3ueJwUWFLIA==",
+      "version": "2.8.0",
+      "resolved": "https://registry.npmjs.org/prettier-plugin-svelte/-/prettier-plugin-svelte-2.8.0.tgz",
+      "integrity": "sha512-QlXv/U3bUszks3XYDPsk1fsaQC+fo2lshwKbcbO+lrSVdJ+40mB1BfL8OCAk1W9y4pJxpqO/4gqm6NtF3zNGCw==",
       "requires": {}
     },
     "queue-microtask": {
@@ -1347,23 +1350,23 @@
       }
     },
     "svelte": {
-      "version": "3.48.0",
-      "resolved": "https://registry.npmjs.org/svelte/-/svelte-3.48.0.tgz",
-      "integrity": "sha512-fN2YRm/bGumvjUpu6yI3BpvZnpIm9I6A7HR4oUNYd7ggYyIwSA/BX7DJ+UXXffLp6XNcUijyLvttbPVCYa/3xQ=="
+      "version": "3.52.0",
+      "resolved": "https://registry.npmjs.org/svelte/-/svelte-3.52.0.tgz",
+      "integrity": "sha512-FxcnEUOAVfr10vDU5dVgJN19IvqeHQCS1zfe8vayTfis9A2t5Fhx+JDe5uv/C3j//bB1umpLJ6quhgs9xyUbCQ=="
     },
     "svelte-language-server": {
-      "version": "0.14.29",
-      "resolved": "https://registry.npmjs.org/svelte-language-server/-/svelte-language-server-0.14.29.tgz",
-      "integrity": "sha512-BvTQIkNvxSRWnKDgaoMjNErTzFvjJbNhiWdZNfnbg+cuSuuPNug+/Cu0oLdHZdz9Zsu1wI3GOvT/RbgovpAFow==",
+      "version": "0.14.37",
+      "resolved": "https://registry.npmjs.org/svelte-language-server/-/svelte-language-server-0.14.37.tgz",
+      "integrity": "sha512-gTCIYsI8MasoH0DkvIj3ixGZRglTb89SxMWehoqKJMW5SF4WXcCJyLUGfX71TTUcZqZzMu9k9PlddpkdFK2AzA==",
       "requires": {
         "@jridgewell/trace-mapping": "^0.3.9",
         "chokidar": "^3.4.1",
         "estree-walker": "^2.0.1",
         "fast-glob": "^3.2.7",
         "lodash": "^4.17.21",
-        "prettier": "2.5.1",
-        "prettier-plugin-svelte": "~2.7.0",
-        "svelte": "^3.48.0",
+        "prettier": "2.7.1",
+        "prettier-plugin-svelte": "~2.8.0",
+        "svelte": "^3.49.0",
         "svelte-preprocess": "~4.10.1",
         "svelte2tsx": "~0.5.0",
         "typescript": "*",
