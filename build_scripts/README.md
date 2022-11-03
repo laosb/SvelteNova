@@ -5,12 +5,15 @@ Both `compile_parser.sh` and `Makefile` are provided by Panic
 and may be retrieved from
 [here](https://docs.nova.app/syntax-reference/build_script.zip).
 
-Run `build_parser.sh` (from project root) to build the
-`tree-sitter-svelte.dylib`:
+Assuming you have Nova.app installed at `/Applications/Nova.app`, run
+`yarn build:tree-sitter` to build `libtree-sitter-svelte.dylib`. This command is
+also included in `yarn build`.
+
+If you installed Nova.app elsewhere, run `build_parser.sh` (from project root)
+to build, specifying the path to Nova.app as the first argument:
 
 ```sh
 ./build_scripts/build_parser.sh /Applications/Nova.app
 ```
 
-You may need to adjust the path to `Nova.app`. It will also copy the build
-output to correct place and cleanup temp files.
+It will also copy the build output to correct place and cleanup temp files.

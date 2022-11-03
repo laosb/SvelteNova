@@ -1,3 +1,11 @@
+# v0.2.0
+
+- 🌲 **`tree-sitter`-based syntax highlighting and folding**, powered by
+  [`Himujjal/tree-sitter-svelte`](https://github.com/Himujjal/tree-sitter-svelte).
+  - `tree-sitter` support requires **Nova 10**. Older Nova versions will still
+    use only RegEx-based highlighting.
+- Updated Svelte Language Server to `0.14.37`.
+
 # v0.1.8
 
 - Updated Svelte Language Server to `0.14.29`.
