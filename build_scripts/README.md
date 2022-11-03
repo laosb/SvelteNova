@@ -5,6 +5,8 @@ Both `compile_parser.sh` and `Makefile` are provided by Panic
 and may be retrieved from
 [here](https://docs.nova.app/syntax-reference/build_script.zip).
 
+## Building
+
 Assuming you have Nova.app installed at `/Applications/Nova.app`, run
 `yarn build:tree-sitter` to build `libtree-sitter-svelte.dylib`. This command is
 also included in `yarn build`.
@@ -17,3 +19,11 @@ to build, specifying the path to Nova.app as the first argument:
 ```
 
 It will also copy the build output to correct place and cleanup temp files.
+
+## Signing
+
+The resulting library must be signed to be able to submit to Nova's library.
+
+Assuming you already built the library, and your Developer ID certificate is
+installed to Login keychain, use `yarn sign:tree-sitter CERT_ID` to sign the
+library.
