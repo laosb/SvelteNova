@@ -1,3 +1,9 @@
+# v0.3.0
+
+- Updated `tree-sitter-svelte` to 0.11.0(697bb515).
+- Updated Svelte Language Server to `0.15.15`.
+- Updated all devDependencies.
+
 # v0.2.0
 
 - 🌲 **`tree-sitter`-based syntax highlighting and folding**, powered by
