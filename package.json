@@ -1,6 +1,6 @@
 {
   "name": "svelte-nova",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "SvelteNova.novaextension/main.js",
   "repository": "https://github.com/laosb/SvelteNova",
   "author": "laosb <github@of.sb>",

@@ -1,8 +1,14 @@
-# v0.3.0
+# v0.4.0
 
 - Updated Svelte Language Server to `0.16.3`.
 - Updated all devDependencies.
 - Dropped Yarn v1 in favor of npm for managing dependencies.
+
+# v0.3.0
+
+- Updated `tree-sitter-svelte` to 0.11.0(697bb515).
+- Updated Svelte Language Server to `0.15.15`.
+- Updated all devDependencies.
 
 # v0.2.0
 
