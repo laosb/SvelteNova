@@ -1,12 +1,12 @@
 {
   "name": "sveltenova.novaextension",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "lockfileVersion": 2,
   "requires": true,
   "packages": {
     "": {
       "name": "sveltenova.novaextension",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "dependencies": {
         "svelte-language-server": "^0.16.3"
       }
