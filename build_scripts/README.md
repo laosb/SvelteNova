@@ -8,8 +8,8 @@ and may be retrieved from
 ## Building
 
 Assuming you have Nova.app installed at `/Applications/Nova.app`, run
-`yarn build:tree-sitter` to build `libtree-sitter-svelte.dylib`. This command is
-also included in `yarn build`.
+`npm run build:tree-sitter` to build `libtree-sitter-svelte.dylib`. This command is
+also included in `npm run build`.
 
 If you installed Nova.app elsewhere, run `build_parser.sh` (from project root)
 to build, specifying the path to Nova.app as the first argument:
@@ -25,5 +25,5 @@ It will also copy the build output to correct place and cleanup temp files.
 The resulting library must be signed to be able to submit to Nova's library.
 
 Assuming you already built the library, and your Developer ID certificate is
-installed to Login keychain, use `yarn sign:tree-sitter CERT_ID` to sign the
+installed to Login keychain, use `npm run sign:tree-sitter CERT_ID` to sign the
 library.
