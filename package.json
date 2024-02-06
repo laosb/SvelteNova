@@ -9,7 +9,7 @@
   "scripts": {
     "build:tree-sitter": "./build_scripts/build_parser.sh /Applications/Nova.app",
     "build:js": "rollup -c && cp README.md LICENSE CHANGELOG.md SvelteNova.novaextension && rm -rf SvelteNova.novaextension/node_modules",
-    "build": "yarn build:tree-sitter && yarn build:js",
+    "build": "npm run build:tree-sitter && npm run build:js",
     "sign:tree-sitter": "./build_scripts/sign_lib.sh"
   },
   "devDependencies": {
@@ -23,7 +23,6 @@
     "typescript": "^4.2.2"
   },
   "dependencies": {
-    "nova-extension-utils": "^1.4.0",
-    "yarn": "^1.22.11"
+    "nova-extension-utils": "^1.4.0"
   }
 }
