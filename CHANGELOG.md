@@ -1,3 +1,9 @@
+# v0.3.0
+
+- Updated Svelte Language Server to `0.16.3`.
+- Updated all devDependencies.
+- Dropped Yarn v1 in favor of npm for managing dependencies.
+
 # v0.2.0
 
 - 🌲 **`tree-sitter`-based syntax highlighting and folding**, powered by
